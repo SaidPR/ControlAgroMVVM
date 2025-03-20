@@ -1,25 +1,25 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Inicio from "./views/Inicio";
-import LoginScreen from "./views/Log_In";
-import RegistroUsuario from "./views/Reg_Usuario";
-import RecoverPasswordScreen from "./views/RecoverPassword";
-import Home from "./views/Home"; // Menú principal
-import WorkersList from "./views/WorkersList"; // Gestión de trabajadores
-import WorkerDetails from "./views/WorkerDetails"; // Detalles del trabajador
-import ProductionControl from "./views/ProductionControl"; // Control de producción
-import ProductionDetails from "./views/ProductionDetails"; // Detalles de producción
-import Reports from "./views/Reports"; // Gestión de reportes
-import DetailsReports from "./views/DetailsReports"; // Detalles de reportes
-import Reg_Docs from "./views/Reg_Docs"; // Importa la pantalla RegDocs
-import UsersList from "./views/UsersList"; // Gestión de Usuarios
-import UsersDetails from "./views/UsersDetails"; // Detalles del usuario
-import GenerateQR from "./views/GenerateQR.js";
-import EditUser from "./views/EditUser.js"
-import AddProductionRecord from "./views/AddProductionRecord.js"
-import AddWorker from "./views/AddWorker.js"
-import Lista from "./views/Lista.js";
-import useNavigationViewModel from "./viewmodels/NavigationViewModel";
+import Inicio from "../views/Inicio.js";
+import LoginScreen from "../views/Log_In.js";
+import RegistroUsuario from "../views/Reg_Usuario.js";
+import RecoverPasswordScreen from "../views/RecoverPassword.js";
+import Home from "../views/Home.js"; // Menú principal
+import WorkersList from "../views/WorkersList.js"; // Gestión de trabajadores
+import WorkerDetails from "../views/WorkerDetails.js"; // Detalles del trabajador
+import ProductionControl from "../views/ProductionControl.js"; // Control de producción
+import ProductionDetails from "../views/ProductionDetails.js"; // Detalles de producción
+import Reports from "../views/Reports.js"; // Gestión de reportes
+import DetailsReports from "../views/DetailsReports.js"; // Detalles de reportes
+import Reg_Docs from "../views/Reg_Docs.js"; // Importa la pantalla RegDocs
+import UsersList from "../views/UsersList.js"; // Gestión de Usuarios
+import UsersDetails from "../views/UsersDetails.js"; // Detalles del usuario
+import GenerateQR from "../views/GenerateQR.js";
+import EditUser from "../views/EditUser.js"
+import AddProductionRecord from "../views/AddProductionRecord.js"
+import AddWorker from "../views/AddWorker.js"
+import Lista from "../views/Lista.js";
+import useNavigationViewModel from "../viewmodels/NavigationViewModel.js";
 
 const Stack = createStackNavigator();
 
