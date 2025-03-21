@@ -1,8 +1,8 @@
-# README: QR-Control Agrícola
+# README: Control Agrícola
 
 ## Descripción del Proyecto
 
-QR-Control Agrícola es una aplicación móvil híbrida diseñada para automatizar y gestionar procesos en campos agrícolas de gran escala. Este proyecto tiene como objetivo principal optimizar la gestión de asistencia y producción diaria mediante tecnologías modernas como React Native y Firebase.
+Control Agrícola es una aplicación móvil híbrida diseñada para automatizar y gestionar procesos en campos agrícolas de gran escala. Este proyecto tiene como objetivo principal optimizar la gestión de asistencia y producción diaria mediante tecnologías modernas como React Native y Firebase.
 
 ---
 
@@ -82,7 +82,7 @@ yarn add @react-navigation/drawer react-native-gesture-handler react-native-rean
 ## Estructura del Proyecto
 
 ```plaintext
-QR-ControlAgro/
+ControlAgro/
 │
 ├── assets/               # Imágenes y recursos visuales
 ├── components/           # Componentes reutilizables (Sidebar, Header, UserCard)
