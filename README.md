@@ -82,7 +82,7 @@ yarn add @react-navigation/drawer react-native-gesture-handler react-native-rean
 ## Estructura del Proyecto
 
 ```plaintext
-ControlAgro/
+ControlAgroMVVM/
 │
 ├── assets/               # Imágenes y recursos visuales
 ├── components/           # Componentes reutilizables (Sidebar, Header, UserCard)
@@ -100,7 +100,7 @@ ControlAgro/
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/SaidPR/QR-ControlAgro-main 
+git clone https://github.com/SaidPR/ControlAgroMVVM 
 ```
 
 2. Navegar al directorio del proyecto:
@@ -125,7 +125,6 @@ expo start
 
 ## Funcionalidades Pendientes
 
-- La Gestión de Trabajadores implementación del QR Funcional actualizado, (de momento sólo muestra un listado rápido supliendo las funciones del QR) impedida de momento debido a la incompatibilidad de versiones en expo y react-native.
 - Generación de reportes avanzados.
 - CRUD´S mejorados en los módulos de Administración de usuarios (más tipos de roles).
 
@@ -144,4 +143,4 @@ Proyecto desarrollado como parte de la materia *Programación Móvil* bajo la su
 
 ---
 
-Contribuye, reporta problemas o sugiere mejoras en nuestro [repositorio en GitHub](https://github.com/tu_usuario/QR-ControlAgro). ¡Gracias por apoyar nuestro proyecto!
+Contribuye, reporta problemas o sugiere mejoras en nuestro [repositorio en GitHub](https://github.com/tu_usuario/ControlAgroMVVM). ¡Gracias por apoyar nuestro proyecto!
