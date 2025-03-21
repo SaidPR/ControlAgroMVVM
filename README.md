@@ -133,7 +133,7 @@ expo start
 ## Colaboradores
 
 - **Ramírez Rodríguez Manuel** - Líder del proyecto.
-- **Piñones Ramos Said Rafael**
+- **Piñones Ramos Said Rafael** - Desarrollador y Co-Diseñador (Visual Studio Suscriber)
 
 ---
 
