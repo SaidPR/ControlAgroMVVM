@@ -1,31 +1,45 @@
-import React from "react";
-import {
-  Image,
+import React, { useState, useEffect } from "react";
+import { 
   ImageBackground,
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
   Dimensions,
+  Image,
+  Alert
 } from "react-native";
+import { Asset } from "expo-asset";
 import useInicioViewModel from "../viewmodels/InicioViewModel";
 
 const { width, height } = Dimensions.get("window");
 
 const VentanaVistaUsuario = ({ navigation }) => {
   const { navigateTo } = useInicioViewModel(navigation);
+  
+  // Estado para la imagen
+  const [backgroundImage, setBackgroundImage] = useState(null);
+
+  useEffect(() => {
+    const loadImage = async () => {
+      const asset = Asset.fromModule(require("../assets/agro.jpg"));
+      await asset.downloadAsync();
+      setBackgroundImage(asset.localUri || asset.uri);
+    };
+    loadImage();
+  }, []);
 
   return (
     <ImageBackground
-      source={require("../assets/agro.jpg")} // Cambia "your-background-image.gif" por tu archivo
+      source={backgroundImage ? { uri: backgroundImage } : null}
       style={styles.background}
     >
       <View style={styles.container}>
         {/* Logotipo */}
         <Image
           style={styles.logoAgricola}
-          resizeMode="contain"
-          source={require("../assets/Agro.png")}
+          resizeMode="contain"  
+          source={require("../assets/Agro.webp")}
         />
 
         {/* Botones principales */}
@@ -64,61 +78,46 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: "space-between", // Distribuir elementos verticalmente
+    justifyContent: "space-between",
     alignItems: "center",
-    paddingVertical: height * 0.07, // Ajustar espaciado general
+    paddingVertical: height * 0.07,
   },
   logoAgricola: {
-    width: width * 0.6, // Tamaño ajustado para Figma
-    height: width * 0.6, // Mantener proporción
-    marginTop: height * 0.09, // Espaciado superior
+    width: width * 0.6,
+    height: width * 0.6,
+    marginTop: height * 0.09,
     borderRadius: 15,
   },
   buttonContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop: height * 0, // Espaciado debajo del logotipo
+    marginTop: height * 0,
   },
   button: {
-    width: width * 0.8, // Botones más grandes para destacar
+    width: width * 0.8,
     paddingVertical: height * 0.02,
     borderRadius: 15,
     alignItems: "center",
-    marginBottom: height * 0.02, // Espaciado entre botones
+    marginBottom: height * 0.02,
     elevation: 4,
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowColor: "rgba(0, 0, 0, 0.25)",
   },
   button1: {
-    backgroundColor: "#14ae5c",
+    backgroundColor: "#0E8C47",
   },
   button2: {
-    backgroundColor: "#e8b931",
+    backgroundColor: "#6B5700",
   },
   buttonText: {
     fontSize: width * 0.05,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#FFFFFF",
   },
   eresNuevoButton: {
-    backgroundColor: "#cb6162",
+    backgroundColor: "#953233",
     paddingVertical: height * 0.015,
     paddingHorizontal: width * 0.2,
     borderRadius: 20,
     elevation: 6,
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    shadowOffset: {
-      width: 0,
-      height: 6,
-    },
-    shadowColor: "rgba(0, 0, 0, 0.3)",
-    marginBottom: height * 0.05, // Separar del borde inferior
   },
   eresNuevo: {
     color: "#fff",
