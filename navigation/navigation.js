@@ -20,6 +20,7 @@ import AddProductionRecord from "../views/AddProductionRecord.js"
 import AddWorker from "../views/AddWorker.js"
 import Lista from "../views/Lista.js";
 import useNavigationViewModel from "../viewmodels/NavigationViewModel.js";
+import AccountSettings from "../views/AccountSettings.js";
 
 const Stack = createStackNavigator();
 
@@ -128,6 +129,11 @@ const StackNavigator = () => {
         name="Lista"
         component={Lista}
         options={{ title: "Pase de Lista" }}
+      />
+      <Stack.Screen
+        name="AccountSettings"
+        component={AccountSettings}
+        options={{ title: "Configuración" }}
       />
     </Stack.Navigator>
   );

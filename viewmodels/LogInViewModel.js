@@ -1,12 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FIREBASE_AUTH, FIRESTORE_DB } from "../firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, addDoc, updateDoc, doc } from "firebase/firestore";
+import * as Notifications from "expo-notifications";
+import * as Device from "expo-device";
 
 const useLogInViewModel = (navigation) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    registerForPushNotificationsAsync();
+  }, []);
+
+  async function registerForPushNotificationsAsync() {
+    if (Device.isDevice) {
+      const { status: existingStatus } = await Notifications.getPermissionsAsync();
+      let finalStatus = existingStatus;
+      if (existingStatus !== "granted") {
+        const { status } = await Notifications.requestPermissionsAsync();
+        finalStatus = status;
+      }
+      if (finalStatus !== "granted") {
+        console.log("Permiso de notificación denegado");
+        return;
+      }
+    } else {
+      console.log("Debe usarse en un dispositivo físico para recibir notificaciones.");
+    }
+  }
 
   const handleLogin = async () => {
     if (!isValidEmail(email)) {
@@ -17,7 +40,7 @@ const useLogInViewModel = (navigation) => {
     try {
       const userCredential = await signInWithEmailAndPassword(FIREBASE_AUTH, email, password);
       const user = userCredential.user;
-      console.log("Usuario iniciado sesión:", user.email);
+      console.log("Usuario inició sesión:", user.email);
 
       const usersCollectionRef = collection(FIRESTORE_DB, "users");
       const q = query(usersCollectionRef, where("email", "==", email));
@@ -29,6 +52,16 @@ const useLogInViewModel = (navigation) => {
       } else {
         console.log("El usuario ya existe en Firestore");
       }
+
+      // Mostrar notificación local
+      await Notifications.scheduleNotificationAsync({
+        content: {
+          title: "Inicio de sesión exitoso",
+          body: `Bienvenido de nuevo, ${user.email}!`,
+          sound: "default",
+        },
+        trigger: null, // Se muestra de inmediato
+      });
 
       navigation.navigate("Home");
     } catch (error) {
