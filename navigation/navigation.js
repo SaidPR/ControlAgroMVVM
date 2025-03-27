@@ -37,7 +37,7 @@ const StackNavigator = () => {
       <Stack.Screen
         name="LogIn"
         component={LoginScreen}
-        options={{ title: "Iniciar Sesión" }}
+        options={{ title: "" }}
       />
       <Stack.Screen
         name="Home"
